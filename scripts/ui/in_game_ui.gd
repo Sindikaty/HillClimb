@@ -1,20 +1,38 @@
 extends CanvasLayer
 
-@onready var slider: HSlider = $soundButton/sounds/Panel/HSlider
-@onready var panel: Panel = $soundButton/sounds/Panel
+@onready var panel: Panel = $settings/Panel
+
+@onready var soundIconOn = preload("res://assets/sprite/sounds.png")
+@onready var soundIconOff = preload("res://assets/sprite/soundsOff.png")
+
+var sound_enabled: bool = true
+var game_paused: bool = false
 
 func _ready() -> void:
-	slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	update_icon()
 
-func _on_button_pressed() -> void:
+func _on_settings_button_pressed() -> void:
+	game_paused = !game_paused
+	panel.visible = game_paused
+	get_tree().paused = game_paused
+
+func _on_restart_button_pressed() -> void:
+	game_paused = false
+	get_tree().paused = false
 	get_tree().reload_current_scene()
-	GlobalPlayer.player_died = false
 
-
-func _on_h_slider_value_changed(value: float) -> void:
-	var db_value = linear_to_db(value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db_value)
-
+func _on_main_menu_button_pressed() -> void:
+	game_paused = false
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _on_sound_button_pressed() -> void:
-	panel.visible = not panel.visible
+	Global.sound_enabled = !Global.sound_enabled
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), not Global.sound_enabled)
+	update_icon()
+
+func update_icon():
+	if Global.sound_enabled:
+		$settings/Panel/soundButton.icon = soundIconOn
+	else:
+		$settings/Panel/soundButton.icon = soundIconOff

@@ -24,13 +24,6 @@ offset_bottom = 75.0
 theme_override_font_sizes/font_size = 50
 text = ":0"
 
-[node name="Button" type="Button" parent="."]
-offset_left = 988.0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 164.0
-text = "Рестарт"
-
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 79.0
 offset_bottom = 80.0
@@ -45,39 +38,65 @@ offset_bottom = 96.0
 texture = ExtResource("3_7vqc2")
 expand_mode = 1
 
-[node name="soundButton" type="Button" parent="."]
-offset_left = 824.0
-offset_top = 24.0
+[node name="settings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 45.0
+offset_bottom = 46.0
+
+[node name="Panel" type="Panel" parent="settings"]
+visible = false
+layout_mode = 0
+offset_left = 198.0
+offset_top = 185.0
 offset_right = 959.0
-offset_bottom = 145.0
+offset_bottom = 535.0
+
+[node name="soundButton" type="Button" parent="settings/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 517.0
+offset_top = 109.0
+offset_right = 652.0
+offset_bottom = 230.0
 icon = ExtResource("4_vtc6i")
 flat = true
 expand_icon = true
 
-[node name="sounds" type="Control" parent="soundButton"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -819.0
-offset_top = -18.0
-offset_right = -779.0
-offset_bottom = 22.0
-
-[node name="Panel" type="Panel" parent="soundButton/sounds"]
-visible = false
+[node name="restartButton" type="Button" parent="settings/Panel"]
+process_mode = 3
 layout_mode = 0
-offset_left = 735.0
-offset_top = 142.0
-offset_right = 1046.0
-offset_bottom = 290.0
+offset_left = 293.0
+offset_top = 105.0
+offset_right = 428.0
+offset_bottom = 226.0
+text = "restart"
+flat = true
+expand_icon = true
 
-[node name="HSlider" type="HSlider" parent="soundButton/sounds/Panel"]
+[node name="mainMenuButton" type="Button" parent="settings/Panel"]
+process_mode = 3
 layout_mode = 0
-offset_left = 9.0
-offset_top = 10.0
-offset_right = 305.0
-offset_bottom = 146.0
-max_value = 10.0
+offset_left = 96.0
+offset_top = 111.0
+offset_right = 231.0
+offset_bottom = 232.0
+text = "main menu"
+flat = true
+expand_icon = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="soundButton" to="." method="_on_sound_button_pressed"]
-[connection signal="value_changed" from="soundButton/sounds/Panel/HSlider" to="." method="_on_h_slider_value_changed"]
+[node name="settingsButton" type="Button" parent="settings"]
+process_mode = 3
+layout_mode = 0
+offset_left = 983.0
+offset_top = -7.0
+offset_right = 1148.0
+offset_bottom = 158.0
+text = "Настройки"
+
+[connection signal="pressed" from="settings/Panel/soundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="settings/Panel/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="settings/Panel/mainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="settings/settingsButton" to="." method="_on_settings_button_pressed"]

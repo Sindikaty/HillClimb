@@ -11,7 +11,7 @@ var timer_playing_lvl = 0.0
 
 func _ready() -> void:
 	generate_polygon_and_collision()
-
+	GlobalPlayer.player_died = false
 
 func generate_polygon_and_collision():
 	var line_points = line.points

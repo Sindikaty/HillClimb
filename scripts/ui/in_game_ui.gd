@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var panel: Panel = $settings/Panel
+@onready var panel: ColorRect = $settings/Panel
 
-@onready var soundIconOn = preload("res://assets/sprite/sounds.png")
-@onready var soundIconOff = preload("res://assets/sprite/soundsOff.png")
+@onready var soundIconOn = preload("res://assets/sprite/UI_texture/UI_main_menu/textureButton/wolume_on.png")
+@onready var soundIconOff = preload("res://assets/sprite/UI_texture/UI_main_menu/textureButton/wolume_off.png")
 
 var sound_enabled: bool = true
 var game_paused: bool = false

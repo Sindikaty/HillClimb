@@ -1,137 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh6wqfmv5dp53"]
+[gd_scene load_steps=7 format=3 uid="uid://bh6wqfmv5dp53"]
 
 [ext_resource type="Script" path="res://scripts/ui/lose.gd" id="1_k1mls"]
-[ext_resource type="Texture2D" uid="uid://ct5st7mn8liks" path="res://assets/sprite/83f7143eb2a9ee74579cc614de4fcd9a.png" id="3_jp4wk"]
-
-[sub_resource type="Animation" id="Animation_f75qk"]
-resource_name = "1_start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect3:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3iydk"]
-resource_name = "2_start"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.1, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect3:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bxcdr"]
-resource_name = "3_start"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect3:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3tfhe"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_te8s4"]
-_data = {
-"1_start": SubResource("Animation_f75qk"),
-"2_start": SubResource("Animation_3iydk"),
-"3_start": SubResource("Animation_bxcdr"),
-"RESET": SubResource("Animation_3tfhe")
-}
+[ext_resource type="SystemFont" uid="uid://dp8l2hjd8uw8o" path="res://assets/tres/MainMenu/fonts/Lvl_button_font.tres" id="2_an87x"]
+[ext_resource type="StyleBox" uid="uid://rd6jsrs7i1jp" path="res://assets/tres/MainMenu/styleButton/restart_normal_style_box_texture.tres" id="3_ngnp4"]
+[ext_resource type="StyleBox" uid="uid://ccgl382o8qx32" path="res://assets/tres/MainMenu/styleButton/restart_pressed_style_box_texture.tres" id="4_ujimy"]
+[ext_resource type="StyleBox" uid="uid://lwjfopgarelb" path="res://assets/tres/MainMenu/styleButton/mainMenu_normal_style_box_texture.tres" id="5_c3i5u"]
+[ext_resource type="StyleBox" uid="uid://cjomcolj2ddt7" path="res://assets/tres/MainMenu/styleButton/mainMenu_pressed_style_box_texture.tres" id="6_tfh2k"]
 
 [node name="UI_lose" type="CanvasLayer"]
 
@@ -148,6 +22,7 @@ offset_left = 37.0
 offset_top = 158.0
 offset_right = 1114.0
 offset_bottom = 580.0
+color = Color(1, 0.709804, 0, 0.262745)
 
 [node name="Label" type="Label" parent="LOSE"]
 layout_mode = 0
@@ -155,70 +30,36 @@ offset_left = 297.0
 offset_top = 171.0
 offset_right = 876.0
 offset_bottom = 328.0
-theme_override_colors/font_color = Color(0.623529, 0.792157, 0.2, 1)
-theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_an87x")
+theme_override_font_sizes/font_size = 71
 text = "Ты слишком много 
 потерял камней"
 horizontal_alignment = 1
 
 [node name="buttonRestart" type="Button" parent="LOSE"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 370.0
-offset_right = 452.0
-offset_bottom = 462.0
-theme_override_font_sizes/font_size = 61
-text = "restart"
+offset_left = 320.0
+offset_top = 392.0
+offset_right = 504.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = ExtResource("3_ngnp4")
+theme_override_styles/pressed = ExtResource("4_ujimy")
+theme_override_styles/normal = ExtResource("3_ngnp4")
 
 [node name="buttonGoToMenu" type="Button" parent="LOSE"]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 368.0
-offset_right = 904.0
-offset_bottom = 460.0
-theme_override_font_sizes/font_size = 61
-text = "main menu"
-
-[node name="stars" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="stars"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 412.0
-offset_top = 247.0
-offset_right = 533.0
-offset_bottom = 359.0
-texture = ExtResource("3_jp4wk")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="stars"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 539.0
-offset_top = 247.0
-offset_right = 660.0
-offset_bottom = 359.0
-texture = ExtResource("3_jp4wk")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="stars"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 666.0
-offset_top = 247.0
-offset_right = 787.0
-offset_bottom = 359.0
-texture = ExtResource("3_jp4wk")
-expand_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="stars"]
-libraries = {
-"": SubResource("AnimationLibrary_te8s4")
-}
+offset_left = 648.0
+offset_top = 392.0
+offset_right = 832.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = ExtResource("5_c3i5u")
+theme_override_styles/pressed = ExtResource("6_tfh2k")
+theme_override_styles/normal = ExtResource("5_c3i5u")
 
 [connection signal="pressed" from="LOSE/buttonRestart" to="LOSE" method="_on_button_restart_pressed"]
 [connection signal="pressed" from="LOSE/buttonGoToMenu" to="LOSE" method="_on_button_go_to_menu_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5t07obicldrt"]
+[gd_scene load_steps=17 format=3 uid="uid://5t07obicldrt"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1agwv"]
 [ext_resource type="Texture2D" uid="uid://chfm6aftn8fb2" path="res://assets/sprite/background/MainMenuBack.png" id="1_1fxao"]
@@ -6,6 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://l1ryh4uqvquf" path="res://assets/sprite/cars/Engine.png" id="4_ikwsf"]
 [ext_resource type="Texture2D" uid="uid://56jm4i4wliqv" path="res://assets/sprite/cars/Pendant.jpg" id="5_avs05"]
 [ext_resource type="AudioStream" uid="uid://bljc0my6265gp" path="res://assets/sounds/detail.ogg" id="5_fs1n6"]
+[ext_resource type="SystemFont" uid="uid://dp8l2hjd8uw8o" path="res://assets/tres/MainMenu/fonts/Lvl_button_font.tres" id="7_u3qhd"]
+[ext_resource type="StyleBox" uid="uid://brlgjncbw83qm" path="res://assets/tres/MainMenu/styleButton/pressed_style_box_texture.tres" id="8_2o5d2"]
+[ext_resource type="StyleBox" uid="uid://c30lrs2ibbvfo" path="res://assets/tres/MainMenu/styleButton/normal_style_box_texture.tres" id="8_ttgv5"]
+[ext_resource type="StyleBox" uid="uid://6eyfc6a6wv7e" path="res://assets/tres/MainMenu/styleButton/disabled_style_box_texture_2d.tres" id="8_ygk4e"]
+[ext_resource type="StyleBox" uid="uid://bpa2g16v1ywsl" path="res://assets/tres/MainMenu/styleButton/play_normal_style_box_texture.tres" id="11_2d02g"]
+[ext_resource type="StyleBox" uid="uid://bu32al6yi0lb8" path="res://assets/tres/MainMenu/styleButton/back_normal_style_box_texture.tres" id="11_sc0c2"]
+[ext_resource type="StyleBox" uid="uid://cwhejg50kpsic" path="res://assets/tres/MainMenu/styleButton/play_pressed_style_box_texture.tres" id="12_cv381"]
+[ext_resource type="StyleBox" uid="uid://dx2gluhooq8fy" path="res://assets/tres/MainMenu/styleButton/back_pressed_style_box_texture.tres" id="12_y1ep0"]
+[ext_resource type="StyleBox" uid="uid://blmcj5xdlly5k" path="res://assets/tres/MainMenu/styleButton/upgrate_normal_style_box_texture.tres" id="13_sr0i6"]
+[ext_resource type="StyleBox" uid="uid://cfa6inpdwyodf" path="res://assets/tres/MainMenu/styleButton/upgrate_pressed_style_box_texture.tres" id="14_07f1p"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,11 +45,18 @@ expand_mode = 1
 
 [node name="ButtonBack" type="Button" parent="Upgrate"]
 layout_mode = 0
-offset_left = 971.0
-offset_top = 19.0
+offset_left = 1032.0
+offset_top = 16.0
 offset_right = 1136.0
-offset_bottom = 58.0
-text = "Назад"
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = ExtResource("11_sc0c2")
+theme_override_styles/pressed = ExtResource("12_y1ep0")
+theme_override_styles/normal = ExtResource("11_sc0c2")
 
 [node name="PanelEngine" type="Panel" parent="Upgrate"]
 self_modulate = Color(0, 0, 0, 1)
@@ -55,7 +72,14 @@ offset_left = 6.0
 offset_top = 287.0
 offset_right = 203.0
 offset_bottom = 352.0
-text = "улучшить"
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
+text = "Улучшить"
 
 [node name="TextureRect" type="TextureRect" parent="Upgrate/PanelEngine"]
 layout_mode = 0
@@ -79,12 +103,15 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="Upgrate/PanelEngine"]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 2.0
 offset_top = 235.0
-offset_right = 269.0
+offset_right = 290.0
 offset_bottom = 263.0
 scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("7_u3qhd")
 theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ASP_upgrate" type="AudioStreamPlayer" parent="Upgrate/PanelEngine"]
 stream = ExtResource("5_fs1n6")
@@ -103,7 +130,15 @@ offset_left = 12.0
 offset_top = 287.0
 offset_right = 209.0
 offset_bottom = 352.0
-text = "улучшить"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
+text = "Улучшить"
 
 [node name="TextureRect" type="TextureRect" parent="Upgrate/PanelPendant"]
 layout_mode = 0
@@ -127,12 +162,15 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="Upgrate/PanelPendant"]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 6.0
 offset_top = 235.0
-offset_right = 269.0
+offset_right = 283.0
 offset_bottom = 263.0
 scale = Vector2(0.75, 0.75)
+theme_override_fonts/font = ExtResource("7_u3qhd")
 theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CoinsLabel" type="Label" parent="Upgrate"]
 layout_mode = 0
@@ -140,9 +178,12 @@ offset_left = 63.0
 offset_top = 56.0
 offset_right = 120.0
 offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 46
 text = "Монет:"
 
 [node name="Levels" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -152,124 +193,340 @@ layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
 
-[node name="BoxContainer" type="BoxContainer" parent="Levels/Panel"]
+[node name="BoxContainer" type="GridContainer" parent="Levels/Panel"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 123.0
-offset_right = 1101.0
-offset_bottom = 510.0
-theme_override_constants/separation = 25
-alignment = 1
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 811.0
+offset_bottom = 716.0
+scale = Vector2(1.15021, 0.763445)
+theme_override_constants/h_separation = 155
+theme_override_constants/v_separation = 20
+columns = 2
 
 [node name="Button1" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "1"
 
 [node name="Button2" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "2"
 
 [node name="Button3" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "3"
 
 [node name="Button4" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "4"
 
 [node name="Button5" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "5"
 
 [node name="Button6" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "6"
 
 [node name="Button7" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "7"
 
 [node name="Button8" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "8"
 
 [node name="Button9" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "9"
 
 [node name="Button10" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "10"
 
 [node name="Button11" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "11"
 
 [node name="Button12" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "12"
 
 [node name="Button13" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "13"
 
 [node name="Button14" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "14"
 
 [node name="Button15" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "15"
 
 [node name="Button16" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "16"
 
 [node name="Button17" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "17"
 
 [node name="Button18" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "18"
 
 [node name="Button19" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "19"
 
 [node name="Button20" type="Button" parent="Levels/Panel/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/disabled = ExtResource("8_ygk4e")
+theme_override_styles/hover = ExtResource("8_ttgv5")
+theme_override_styles/pressed = ExtResource("8_2o5d2")
+theme_override_styles/normal = ExtResource("8_ttgv5")
 text = "20"
 
 [node name="ButtonBack" type="Button" parent="Levels/Panel"]
 layout_mode = 0
-offset_left = 971.0
-offset_top = 19.0
+offset_left = 1032.0
+offset_top = 16.0
 offset_right = 1136.0
-offset_bottom = 58.0
-text = "Назад"
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = ExtResource("11_sc0c2")
+theme_override_styles/pressed = ExtResource("12_y1ep0")
+theme_override_styles/normal = ExtResource("12_y1ep0")
 
 [node name="Main" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ButtonStart" type="Button" parent="Main"]
 layout_mode = 0
-offset_left = 913.0
-offset_top = 310.0
-offset_right = 1088.0
-offset_bottom = 469.0
-text = "Играть"
+offset_left = 880.0
+offset_top = 304.0
+offset_right = 1097.0
+offset_bottom = 501.0
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/hover = ExtResource("11_2d02g")
+theme_override_styles/pressed = ExtResource("12_cv381")
+theme_override_styles/normal = ExtResource("11_2d02g")
 
 [node name="ButtonUpgrate" type="Button" parent="Main"]
 layout_mode = 0
-offset_left = 747.0
-offset_top = 452.0
-offset_right = 868.0
-offset_bottom = 576.0
-text = "Улучшение"
+offset_left = 680.0
+offset_top = 456.0
+offset_right = 836.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("7_u3qhd")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover = ExtResource("13_sr0i6")
+theme_override_styles/pressed = ExtResource("14_07f1p")
+theme_override_styles/normal = ExtResource("13_sr0i6")
 
 [connection signal="pressed" from="Upgrate/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="Upgrate/PanelEngine/ButtonUpgrateEngine" to="." method="_on_button_upgrate_engine_pressed"]

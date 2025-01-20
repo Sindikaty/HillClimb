@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/coins.gd" id="1_4mevx"]
 [ext_resource type="Texture2D" uid="uid://be12gqoemqxm6" path="res://assets/sprite/GaechniyKlych.png" id="2_qbk4x"]
-[ext_resource type="AudioStream" uid="uid://dyklohjuh3sn0" path="res://assets/sounds/sound_coin.wav" id="3_6ha78"]
+[ext_resource type="AudioStream" uid="uid://cpywjlccqcmc0" path="res://assets/sounds/PodborKlych.mp3" id="3_as7hy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qwye"]
 radius = 88.0057
@@ -18,7 +18,7 @@ scale = Vector2(0.136719, 0.136719)
 texture = ExtResource("2_qbk4x")
 
 [node name="ASPup" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_6ha78")
+stream = ExtResource("3_as7hy")
 volume_db = -15.794
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

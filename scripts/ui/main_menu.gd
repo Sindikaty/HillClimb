@@ -5,11 +5,18 @@ var upgrade_cost_pendant = 15
 
  
 func _ready():
+	Bridge.storage.get(["passedLvl", "coins"], Callable(self, "_on_storage_get_completed"))
+	Bridge.storage.get(["torque", "turnLeftRight"], Callable(self, "_on_global_player_storage_get_completed"))
 	var container = $Levels/Panel/BoxContainer
 	for button in container.get_children():
 		if button is Button:
 			button.connect("pressed", Callable(self, "_on_button_pressed").bind(button))
 
+
+
+func _process(delta):
+	$Upgrate/CoinsLabel.text = str("Монет: ", int(Global.coins))
+	
 	var buttons = $Levels/Panel/BoxContainer.get_children()
 	for button in buttons:
 		var level_to_check = int(button.get_text())
@@ -17,6 +24,45 @@ func _ready():
 			button.disabled = false
 		else:
 			button.disabled = true
+
+	
+
+func _on_storage_get_completed(success, data):
+	if success:
+		if data[0] != null:
+			Global.passedLvl = int(data[0])
+			print("passedLvl: ", data[0])
+		else:
+			Global.passedLvl = 1
+
+			print("passedLvl is null")
+
+		
+		if data[1] != null:
+			Global.coins = int(data[1])
+			print("coins: ", data[1])
+		else:
+			Global.coins = 0
+			print("coins is null")
+
+
+func _on_global_player_storage_get_completed(success, data):
+	if success:
+		if data[0] != null:
+			GlobalPlayer.TORQUE = float(data[0])
+			print("torque: ", data[0])
+		else:
+			GlobalPlayer.TORQUE = 1500.0
+
+			print("torque is 1500")
+
+		
+		if data[1] != null:
+			GlobalPlayer.turnLeftRight = float(data[1])
+			print("turnLeftRight: ", data[1])
+		else:
+			GlobalPlayer.turnLeftRight = 5500.0
+			print("turnLeftRight is 5500.0")
 
 
 func _on_button_pressed(button: Button) -> void:
@@ -47,8 +93,6 @@ func _on_button_back_pressed() -> void:
 	$Main.visible = true
 
 
-func _process(delta: float) -> void:
-	$Upgrate/CoinsLabel.text = str("Монет: ", int(Global.coins))
 
 
 func _on_button_upgrate_engine_pressed() -> void:
@@ -72,7 +116,8 @@ func _on_button_upgrate_engine_pressed() -> void:
 		$Upgrate/PanelEngine/Label.text = str("Цена улучшения: ", upgrade_cost_engine + 5)
 		if $Upgrate/PanelEngine/ProgressBar.value == $Upgrate/PanelEngine/ProgressBar.max_value:
 			$Upgrate/PanelEngine/Label.text = str("Максимальный уровень")
-
+	Global._save_data()
+	GlobalPlayer._save_data()
 
 func _on_button_upgrate_pendant_pressed() -> void:
 	if GlobalPlayer.turnLeftRight == 5500:
@@ -93,3 +138,5 @@ func _on_button_upgrate_pendant_pressed() -> void:
 		$Upgrate/PanelPendant/Label.text = str("Цена улучшения: ", upgrade_cost_pendant + 5)
 		if $Upgrate/PanelPendant/ProgressBar.value == $Upgrate/PanelPendant/ProgressBar.max_value:
 			$Upgrate/PanelPendant/Label.text = str("Максимальный уровень")
+	GlobalPlayer._save_data()
+	Global._save_data()

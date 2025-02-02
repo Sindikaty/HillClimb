@@ -38,7 +38,7 @@ offset_bottom = 40.0
 [node name="TextureRect" type="TextureRect" parent="Upgrate"]
 modulate = Color(0.581033, 0.581033, 0.581033, 1)
 layout_mode = 0
-offset_right = 1150.0
+offset_right = 1156.0
 offset_bottom = 657.0
 texture = ExtResource("3_41ix8")
 expand_mode = 1

@@ -13,6 +13,17 @@ func _ready() -> void:
 	generate_polygon_and_collision()
 	GlobalPlayer.player_died = false
 
+
+	Bridge.game.connect("visibility_state_changed", Callable(self, "_on_visibility_state_changed"))
+
+# To track visibility state changes, connect to the signal
+
+func _on_visibility_state_changed(state):
+	if state == 'hidden':
+		$AudioStreamPlayer.volume_db = -80.0
+	elif state == 'visible':
+		$AudioStreamPlayer.volume_db = -23.0
+		
 func generate_polygon_and_collision():
 	var line_points = line.points
 	
@@ -65,3 +76,5 @@ func _on_area_finish_body_entered(body: Node2D) -> void:
 		$UI_win.visible = true
 		$UI_win.stars_anim()
 		$InGameUI.visible = false
+		#Global.passedLvl += 1
+		#Global._save_data()

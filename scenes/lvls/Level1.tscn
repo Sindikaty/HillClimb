@@ -73,7 +73,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("6_v0xbk")
 
 [node name="ParallaxLayer5" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.5, 0.001)
+scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(-75, 1)
 repeat_size = Vector2(3200, 0)
 
@@ -240,7 +240,7 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_fjian")
-volume_db = -23.423
+volume_db = -23.0
 autoplay = true
 
 [connection signal="body_entered" from="AreaFinish" to="." method="_on_area_finish_body_entered"]

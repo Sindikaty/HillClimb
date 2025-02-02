@@ -11,6 +11,11 @@ var game_paused: bool = false
 func _ready() -> void:
 	update_icon()
 
+
+func _on_button_pressed() -> void:
+	GlobalPlayer.player_died = false
+	get_tree().reload_current_scene()
+
 func _on_settings_button_pressed() -> void:
 	game_paused = !game_paused
 	panel.visible = game_paused

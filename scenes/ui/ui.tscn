@@ -176,10 +176,10 @@ vertical_alignment = 1
 
 [node name="buttonRestart" type="Button" parent="WIN"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 296.0
-offset_right = 440.0
-offset_bottom = 464.0
+offset_left = 320.0
+offset_top = 368.0
+offset_right = 488.0
+offset_bottom = 536.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -191,10 +191,10 @@ theme_override_styles/normal = ExtResource("4_6xvwd")
 
 [node name="buttonNextLvl" type="Button" parent="WIN"]
 layout_mode = 0
-offset_left = 656.0
-offset_top = 312.0
-offset_right = 816.0
-offset_bottom = 480.0
+offset_left = 704.0
+offset_top = 384.0
+offset_right = 864.0
+offset_bottom = 552.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -206,10 +206,10 @@ theme_override_styles/normal = ExtResource("6_h5lwe")
 
 [node name="buttonGoToMenu" type="Button" parent="WIN"]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 304.0
-offset_right = 632.0
-offset_bottom = 472.0
+offset_left = 512.0
+offset_top = 376.0
+offset_right = 680.0
+offset_bottom = 544.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5

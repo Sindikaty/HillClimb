@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://28pa8nj6jyqc"]
+[gd_scene load_steps=20 format=3 uid="uid://28pa8nj6jyqc"]
 
 [ext_resource type="Script" path="res://scripts/lvls/Level1.gd" id="1_n7232"]
 [ext_resource type="Texture2D" uid="uid://bjx368wtxyf14" path="res://assets/sprite/background/version B/Layers/sky.png" id="2_vflmd"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bcec5r3u34x5" path="res://scenes/ui/in_game_ui.tscn" id="14_l3mmb"]
 [ext_resource type="PackedScene" uid="uid://bh6wqfmv5dp53" path="res://scenes/ui/ui_lose.tscn" id="16_2wsff"]
 [ext_resource type="AudioStream" uid="uid://bn857nyw07rfm" path="res://assets/sounds/govnoser mountains.mp3" id="17_fjian"]
+[ext_resource type="Texture2D" uid="uid://8op2yhvmswig" path="res://assets/sprite/undergrounds/unnamed.jpg" id="18_o2mkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynxk4"]
 size = Vector2(218.002, 605)
@@ -242,5 +243,16 @@ visible = false
 stream = ExtResource("17_fjian")
 volume_db = -23.0
 autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.999999, 0.640809, 0.21686, 1)
+offset_left = 1816.0
+offset_top = 232.0
+offset_right = 1968.0
+offset_bottom = 384.0
+texture = ExtResource("18_o2mkl")
+expand_mode = 1
+
+[node name="bones" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="AreaFinish" to="." method="_on_area_finish_body_entered"]

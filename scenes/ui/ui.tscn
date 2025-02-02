@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/ui/win.gd" id="1_ih5h8"]
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_niw1x"]
-[ext_resource type="Texture2D" uid="uid://ct5st7mn8liks" path="res://assets/sprite/83f7143eb2a9ee74579cc614de4fcd9a.png" id="2_8jh0a"]
 [ext_resource type="SystemFont" uid="uid://dp8l2hjd8uw8o" path="res://assets/tres/MainMenu/fonts/Lvl_button_font.tres" id="3_2wdeb"]
 [ext_resource type="StyleBox" uid="uid://rd6jsrs7i1jp" path="res://assets/tres/MainMenu/styleButton/restart_normal_style_box_texture.tres" id="4_6xvwd"]
 [ext_resource type="StyleBox" uid="uid://ccgl382o8qx32" path="res://assets/tres/MainMenu/styleButton/restart_pressed_style_box_texture.tres" id="5_vo0y6"]
@@ -10,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://cdxqkeqgvusu6" path="res://assets/tres/MainMenu/styleButton/next_lvl_pressed_style_box_texture.tres" id="7_hx2ty"]
 [ext_resource type="StyleBox" uid="uid://lwjfopgarelb" path="res://assets/tres/MainMenu/styleButton/mainMenu_normal_style_box_texture.tres" id="8_roigs"]
 [ext_resource type="StyleBox" uid="uid://cjomcolj2ddt7" path="res://assets/tres/MainMenu/styleButton/mainMenu_pressed_style_box_texture.tres" id="9_vjn03"]
+[ext_resource type="Texture2D" uid="uid://ccupw2idmba37" path="res://assets/sprite/star.png" id="10_aabk2"]
 
 [sub_resource type="Animation" id="Animation_f75qk"]
 resource_name = "1_start"
@@ -232,17 +232,16 @@ offset_left = 412.0
 offset_top = 247.0
 offset_right = 533.0
 offset_bottom = 359.0
-texture = ExtResource("2_8jh0a")
+texture = ExtResource("10_aabk2")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="stars"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 539.0
 offset_top = 247.0
 offset_right = 660.0
 offset_bottom = 359.0
-texture = ExtResource("2_8jh0a")
+texture = ExtResource("10_aabk2")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="stars"]
@@ -252,7 +251,7 @@ offset_left = 666.0
 offset_top = 247.0
 offset_right = 787.0
 offset_bottom = 359.0
-texture = ExtResource("2_8jh0a")
+texture = ExtResource("10_aabk2")
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stars"]

@@ -9,4 +9,3 @@ func _ready():
 
 func _save_data():
 	Bridge.storage.set(["passedLvl", "coins"], [Global.passedLvl, Global.coins])
-

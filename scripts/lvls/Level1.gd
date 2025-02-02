@@ -108,10 +108,8 @@ func _on_area_finish_body_entered(body: Node2D) -> void:
 		$UI_win.visible = true
 		$UI_win.stars_anim()
 		$InGameUI.visible = false
-<<<<<<< Updated upstream
-		#Global.passedLvl += 1
-		#Global._save_data()
-=======
+		Global.passedLvl += 1
+		Global._save_data()
 
 
 
@@ -157,4 +155,3 @@ func spawn_bone(position: Vector2, scale: float, rotation: float, texture: Textu
 	bone_sprite.scale = Vector2(scale, scale)  # Устанавливаем масштаб
 	bone_sprite.rotation = rotation  # Устанавливаем поворот
 	add_child(bone_sprite)  # Добавляем спрайт на сцену
->>>>>>> Stashed changes

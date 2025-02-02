@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://cfa6inpdwyodf"]
+
+[ext_resource type="Texture2D" uid="uid://b0ryqedkshtk3" path="res://assets/tres/MainMenu/Atlas/OrangeAtlas.tres" id="1_si2k7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lty07"]
+atlas = ExtResource("1_si2k7")
+region = Rect2(65, 289, 30, 30)
+
+[resource]
+texture = SubResource("AtlasTexture_lty07")

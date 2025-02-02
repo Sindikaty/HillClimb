@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcec5r3u34x5"]
+[gd_scene load_steps=12 format=3 uid="uid://bcec5r3u34x5"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_ui.gd" id="1_4r35j"]
+[ext_resource type="SystemFont" uid="uid://dp8l2hjd8uw8o" path="res://assets/tres/MainMenu/fonts/Lvl_button_font.tres" id="2_ayv0j"]
 [ext_resource type="Texture2D" uid="uid://be12gqoemqxm6" path="res://assets/sprite/GaechniyKlych.png" id="2_smrpa"]
 [ext_resource type="Texture2D" uid="uid://day20kvuqn7jt" path="res://assets/sprite/Boulder.png" id="3_7vqc2"]
-[ext_resource type="Texture2D" uid="uid://dllkuh05spqp" path="res://assets/sprite/sounds.png" id="4_vtc6i"]
+[ext_resource type="StyleBox" uid="uid://lwjfopgarelb" path="res://assets/tres/MainMenu/styleButton/mainMenu_normal_style_box_texture.tres" id="6_4l6w7"]
+[ext_resource type="StyleBox" uid="uid://vxuyovch0cxm" path="res://assets/tres/MainMenu/styleButton/settings_normal_style_box_texture.tres" id="6_knsbt"]
+[ext_resource type="StyleBox" uid="uid://rd6jsrs7i1jp" path="res://assets/tres/MainMenu/styleButton/restart_normal_style_box_texture.tres" id="6_wgyl5"]
+[ext_resource type="StyleBox" uid="uid://bdefga7tutryh" path="res://assets/tres/MainMenu/styleButton/settings_pressed_style_box_texture.tres" id="7_2y16b"]
+[ext_resource type="Texture2D" uid="uid://bg248r7grtiod" path="res://assets/sprite/UI_texture/UI_main_menu/textureButton/wolume_off.png" id="7_6pe34"]
+[ext_resource type="StyleBox" uid="uid://cjomcolj2ddt7" path="res://assets/tres/MainMenu/styleButton/mainMenu_pressed_style_box_texture.tres" id="7_gdt7d"]
+[ext_resource type="StyleBox" uid="uid://ccgl382o8qx32" path="res://assets/tres/MainMenu/styleButton/restart_pressed_style_box_texture.tres" id="7_iacj3"]
 
 [node name="InGameUI" type="CanvasLayer"]
 script = ExtResource("1_4r35j")
@@ -13,6 +20,7 @@ offset_left = 528.0
 offset_top = 24.0
 offset_right = 612.0
 offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("2_ayv0j")
 theme_override_font_sizes/font_size = 50
 text = ": 0"
 
@@ -21,15 +29,9 @@ offset_left = 88.0
 offset_top = 6.0
 offset_right = 130.0
 offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("2_ayv0j")
 theme_override_font_sizes/font_size = 50
-text = ":0"
-
-[node name="Button" type="Button" parent="."]
-offset_left = 988.0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 164.0
-text = "Рестарт"
+text = ": 0"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 79.0
@@ -45,39 +47,74 @@ offset_bottom = 96.0
 texture = ExtResource("3_7vqc2")
 expand_mode = 1
 
-[node name="soundButton" type="Button" parent="."]
-offset_left = 824.0
-offset_top = 24.0
+[node name="settings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 45.0
+offset_bottom = 46.0
+
+[node name="Panel" type="ColorRect" parent="settings"]
+visible = false
+layout_mode = 0
+offset_left = 198.0
+offset_top = 185.0
 offset_right = 959.0
-offset_bottom = 145.0
-icon = ExtResource("4_vtc6i")
+offset_bottom = 535.0
+color = Color(1, 0.709804, 0, 0.262745)
+
+[node name="restartButton" type="Button" parent="settings/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 293.0
+offset_top = 105.0
+offset_right = 428.0
+offset_bottom = 226.0
+theme_override_styles/hover = ExtResource("6_wgyl5")
+theme_override_styles/pressed = ExtResource("7_iacj3")
+theme_override_styles/normal = ExtResource("6_wgyl5")
+expand_icon = true
+
+[node name="soundButton" type="Button" parent="settings/Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 477.0
+offset_top = 97.0
+offset_right = 621.0
+offset_bottom = 238.0
+icon = ExtResource("7_6pe34")
 flat = true
 expand_icon = true
 
-[node name="sounds" type="Control" parent="soundButton"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -819.0
-offset_top = -18.0
-offset_right = -779.0
-offset_bottom = 22.0
-
-[node name="Panel" type="Panel" parent="soundButton/sounds"]
-visible = false
+[node name="mainMenuButton" type="Button" parent="settings/Panel"]
+process_mode = 3
 layout_mode = 0
-offset_left = 735.0
-offset_top = 142.0
-offset_right = 1046.0
-offset_bottom = 290.0
+offset_left = 96.0
+offset_top = 111.0
+offset_right = 231.0
+offset_bottom = 232.0
+theme_override_styles/hover = ExtResource("6_4l6w7")
+theme_override_styles/pressed = ExtResource("7_gdt7d")
+theme_override_styles/normal = ExtResource("6_4l6w7")
 
-[node name="HSlider" type="HSlider" parent="soundButton/sounds/Panel"]
+[node name="settingsButton" type="Button" parent="settings"]
+process_mode = 3
 layout_mode = 0
-offset_left = 9.0
-offset_top = 10.0
-offset_right = 305.0
-offset_bottom = 146.0
-max_value = 10.0
+offset_left = 1028.0
+offset_top = -7.0
+offset_right = 1148.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ayv0j")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/hover = ExtResource("6_knsbt")
+theme_override_styles/pressed = ExtResource("7_2y16b")
+theme_override_styles/normal = ExtResource("6_knsbt")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="soundButton" to="." method="_on_sound_button_pressed"]
-[connection signal="value_changed" from="soundButton/sounds/Panel/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="settings/Panel/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="settings/Panel/soundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="settings/Panel/mainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="settings/settingsButton" to="." method="_on_settings_button_pressed"]

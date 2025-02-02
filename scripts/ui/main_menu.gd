@@ -21,9 +21,9 @@ func _process(delta):
 	for button in buttons:
 		var level_to_check = int(button.get_text())
 		if level_to_check <= Global.passedLvl:
-			button.modulate = Color(0, 1, 0)
+			button.disabled = false
 		else:
-			button.modulate = Color(1, 0, 0)
+			button.disabled = true
 
 	
 
@@ -70,6 +70,9 @@ func _on_button_pressed(button: Button) -> void:
 	var scene_path = "res://scenes/lvls/Level" + SelectLvl + ".tscn"
 	if Global.passedLvl >= int(SelectLvl):
 		get_tree().change_scene_to_file(scene_path)
+	print(scene_path)
+	print(Global.passedLvl)
+	print(SelectLvl)
 
 
 func _on_button_start_pressed() -> void:

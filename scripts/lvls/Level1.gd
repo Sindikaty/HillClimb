@@ -13,6 +13,7 @@ func _ready() -> void:
 	generate_polygon_and_collision()
 	GlobalPlayer.player_died = false
 
+
 	Bridge.game.connect("visibility_state_changed", Callable(self, "_on_visibility_state_changed"))
 
 # To track visibility state changes, connect to the signal
@@ -23,8 +24,6 @@ func _on_visibility_state_changed(state):
 	elif state == 'visible':
 		$AudioStreamPlayer.volume_db = -23.0
 		
-
-
 func generate_polygon_and_collision():
 	var line_points = line.points
 	

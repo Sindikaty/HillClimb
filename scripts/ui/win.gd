@@ -22,15 +22,13 @@ func _on_button_next_lvl_pressed() -> void:
 		print("Скоро обновление")
 	if nextLevelNumber > Global.passedLvl:
 		Global.passedLvl += 1
-	
 	Global._save_data()
 
 
 func _on_button_go_to_menu_pressed() -> void:
-	Global._save_data()
-	
 	var currentScene = get_tree().current_scene.name
 	var nextLevelNumber = currentScene.to_int() + 1
 	if nextLevelNumber > Global.passedLvl:
 		Global.passedLvl += 1
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	Global._save_data()

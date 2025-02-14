@@ -183,7 +183,6 @@ theme_override_font_sizes/font_size = 46
 text = "Монет:"
 
 [node name="Levels" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -500,6 +499,7 @@ theme_override_styles/pressed = ExtResource("12_y1ep0")
 theme_override_styles/normal = ExtResource("12_y1ep0")
 
 [node name="Main" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

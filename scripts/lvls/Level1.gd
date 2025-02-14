@@ -27,9 +27,8 @@ var bone_textures = [
 @export var min_rotation: float = -45  # Минимальный угол поворота (в градусах)
 @export var max_rotation: float = 45  # Максимальный угол поворота (в градусах)
 @export var y_offset: float = 100.0 
-
-
-
+enum GameState {PLAYING, WIN, LOSE}
+var game_state = GameState.PLAYING
 
 
 var line_points
@@ -39,9 +38,6 @@ func _ready() -> void:
 	generate_polygon_and_collision()
 	generate_bones_under_line()
 	GlobalPlayer.player_died = false
-	
-
-
 	Bridge.game.connect("visibility_state_changed", Callable(self, "_on_visibility_state_changed"))
 
 # To track visibility state changes, connect to the signal
@@ -70,48 +66,49 @@ func generate_polygon_and_collision():
 	# Устанавливаем точки для CollisionPolygon2D
 	collision_polygon.polygon = polygon_points
 
-
-
-
-
-
 func _process(delta: float) -> void:
 	$"InGameUI/StoneLabel".text = str(": ", int(Global.Stones))
 	$"InGameUI/CoinLabel".text = str(": ", int(Global.coins))
 	
+	if game_state != GameState.PLAYING:
+		return
+	
 	if Game_start == false and Global.Stones < 5:
 		timer_start_game += delta
 		if timer_start_game >= 10:
-			lose("Ты не собрал камни")
+			set_game_state(GameState.LOSE, "Ты не собрал камни")
 	else:
 		Game_start = true
-	
+		
 	if Global.Stones <= 2 and Game_start == true:
 		timer += delta
 		if timer >= 1:
-			lose("Ты слишком много \n потерял камней")
+			set_game_state(GameState.LOSE, "Ты слишком много \n потерял камней")
 	else:
 		timer = 0
 	
 	$ParallaxBackground.position.y = $Player.position.y * 0.01
 
 
-func lose(reason: String):
-	$"UI_lose/LOSE/Label".text = reason
-	$UI_lose.visible = true
-	GlobalPlayer.player_died = true
-	Game_start = false
-
-
-func _on_area_finish_body_entered(body: Node2D) -> void:
-	if "layer" in body.name:
+func set_game_state(new_state: GameState, reason: String = ""):
+	if game_state != GameState.PLAYING:
+		return
+	
+	game_state = new_state
+	if game_state == GameState.LOSE:
+		$"UI_lose/LOSE/Label".text = reason
+		$UI_lose.visible = true
+		GlobalPlayer.player_died = true
+	elif game_state == GameState.WIN:
 		$UI_win.visible = true
 		$UI_win.stars_anim()
 		$InGameUI.visible = false
-		Global.passedLvl += 1
+		GlobalPlayer.player_died = true
 		Global._save_data()
 
-
+func _on_area_finish_body_entered(body: Node2D) -> void:
+	if "layer" in body.name and game_state == GameState.PLAYING:
+		set_game_state(GameState.WIN)
 
 func generate_bones_under_line():
 	var line_points = $Line2D.points  # Получаем точки из Line2D

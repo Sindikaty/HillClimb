@@ -34,7 +34,6 @@ func _on_storage_get_completed(success, data):
 			print("passedLvl: ", data[0])
 		else:
 			Global.passedLvl = 1
-
 			print("passedLvl is null")
 
 		

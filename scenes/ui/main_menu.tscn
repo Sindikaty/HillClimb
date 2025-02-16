@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://5t07obicldrt"]
+[gd_scene load_steps=19 format=3 uid="uid://5t07obicldrt"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1agwv"]
 [ext_resource type="Texture2D" uid="uid://chfm6aftn8fb2" path="res://assets/sprite/background/MainMenuBack.png" id="1_1fxao"]
@@ -11,11 +11,24 @@
 [ext_resource type="StyleBox" uid="uid://c30lrs2ibbvfo" path="res://assets/tres/MainMenu/styleButton/normal_style_box_texture.tres" id="8_ttgv5"]
 [ext_resource type="StyleBox" uid="uid://6eyfc6a6wv7e" path="res://assets/tres/MainMenu/styleButton/disabled_style_box_texture_2d.tres" id="8_ygk4e"]
 [ext_resource type="StyleBox" uid="uid://bpa2g16v1ywsl" path="res://assets/tres/MainMenu/styleButton/play_normal_style_box_texture.tres" id="11_2d02g"]
+[ext_resource type="Texture2D" uid="uid://c2c3jcs6m5q68" path="res://assets/sprite/UpgrateInfo/info.png" id="11_mpjnk"]
 [ext_resource type="StyleBox" uid="uid://bu32al6yi0lb8" path="res://assets/tres/MainMenu/styleButton/back_normal_style_box_texture.tres" id="11_sc0c2"]
 [ext_resource type="StyleBox" uid="uid://cwhejg50kpsic" path="res://assets/tres/MainMenu/styleButton/play_pressed_style_box_texture.tres" id="12_cv381"]
 [ext_resource type="StyleBox" uid="uid://dx2gluhooq8fy" path="res://assets/tres/MainMenu/styleButton/back_pressed_style_box_texture.tres" id="12_y1ep0"]
 [ext_resource type="StyleBox" uid="uid://blmcj5xdlly5k" path="res://assets/tres/MainMenu/styleButton/upgrate_normal_style_box_texture.tres" id="13_sr0i6"]
 [ext_resource type="StyleBox" uid="uid://cfa6inpdwyodf" path="res://assets/tres/MainMenu/styleButton/upgrate_pressed_style_box_texture.tres" id="14_07f1p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpeqi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,7 +43,6 @@ texture = ExtResource("1_1fxao")
 expand_mode = 1
 
 [node name="Upgrate" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -68,9 +80,9 @@ offset_bottom = 490.0
 
 [node name="ButtonUpgrateEngine" type="Button" parent="Upgrate/PanelEngine"]
 layout_mode = 0
-offset_left = 6.0
+offset_left = 10.0
 offset_top = 287.0
-offset_right = 203.0
+offset_right = 207.0
 offset_bottom = 352.0
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -116,6 +128,37 @@ vertical_alignment = 1
 [node name="ASP_upgrate" type="AudioStreamPlayer" parent="Upgrate/PanelEngine"]
 stream = ExtResource("5_fs1n6")
 
+[node name="SpeedUpgradeButtonInfo" type="Button" parent="Upgrate/PanelEngine"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = -3.0
+offset_right = 218.0
+offset_bottom = 29.0
+icon = ExtResource("11_mpjnk")
+flat = true
+expand_icon = true
+
+[node name="Panel" type="Panel" parent="Upgrate/PanelEngine/SpeedUpgradeButtonInfo"]
+visible = false
+layout_mode = 0
+offset_left = -178.0
+offset_top = 27.0
+offset_right = 28.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lpeqi")
+
+[node name="Label" type="Label" parent="Upgrate/PanelEngine/SpeedUpgradeButtonInfo/Panel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 70.0
+offset_right = 188.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("7_u3qhd")
+text = "Улучшение позволит 
+машине ехать быстрее"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PanelPendant" type="Panel" parent="Upgrate"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
@@ -126,9 +169,9 @@ offset_bottom = 490.0
 
 [node name="ButtonUpgratePendant" type="Button" parent="Upgrate/PanelPendant"]
 layout_mode = 0
-offset_left = 12.0
+offset_left = 13.0
 offset_top = 287.0
-offset_right = 209.0
+offset_right = 210.0
 offset_bottom = 352.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -143,9 +186,9 @@ text = "Улучшить"
 [node name="TextureRect" type="TextureRect" parent="Upgrate/PanelPendant"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 18.0
+offset_top = 19.0
 offset_right = 206.0
-offset_bottom = 208.0
+offset_bottom = 209.0
 texture = ExtResource("5_avs05")
 expand_mode = 1
 
@@ -172,6 +215,39 @@ theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TurnUpgradeButtonInfo" type="Button" parent="Upgrate/PanelPendant"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = -3.0
+offset_right = 218.0
+offset_bottom = 29.0
+icon = ExtResource("11_mpjnk")
+flat = true
+expand_icon = true
+
+[node name="Panel2" type="Panel" parent="Upgrate/PanelPendant/TurnUpgradeButtonInfo"]
+visible = false
+layout_mode = 0
+offset_left = -178.0
+offset_top = 27.0
+offset_right = 28.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lpeqi")
+
+[node name="Label2" type="Label" parent="Upgrate/PanelPendant/TurnUpgradeButtonInfo/Panel2"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 62.0
+offset_right = 187.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("7_u3qhd")
+text = "Улучшение увеличивает 
+скорость поворота 
+грузовика
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CoinsLabel" type="Label" parent="Upgrate"]
 layout_mode = 0
 offset_left = 63.0
@@ -183,6 +259,7 @@ theme_override_font_sizes/font_size = 46
 text = "Монет:"
 
 [node name="Levels" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -530,7 +607,11 @@ theme_override_styles/normal = ExtResource("13_sr0i6")
 
 [connection signal="pressed" from="Upgrate/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="Upgrate/PanelEngine/ButtonUpgrateEngine" to="." method="_on_button_upgrate_engine_pressed"]
+[connection signal="mouse_entered" from="Upgrate/PanelEngine/SpeedUpgradeButtonInfo" to="." method="_on_speed_upgrade_button_info_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrate/PanelEngine/SpeedUpgradeButtonInfo" to="." method="_on_speed_upgrade_button_info_mouse_exited"]
 [connection signal="pressed" from="Upgrate/PanelPendant/ButtonUpgratePendant" to="." method="_on_button_upgrate_pendant_pressed"]
+[connection signal="mouse_entered" from="Upgrate/PanelPendant/TurnUpgradeButtonInfo" to="." method="_on_turn_upgrade_button_info_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrate/PanelPendant/TurnUpgradeButtonInfo" to="." method="_on_turn_upgrade_button_info_mouse_exited"]
 [connection signal="pressed" from="Levels/Panel/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="Main/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="Main/ButtonUpgrate" to="." method="_on_button_upgrate_pressed"]

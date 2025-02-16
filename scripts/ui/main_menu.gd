@@ -3,7 +3,10 @@ extends Control
 var upgrade_cost_engine = 15
 var upgrade_cost_pendant = 15
 
- 
+@onready var SpeedPanelInfo = $Upgrate/PanelEngine/SpeedUpgradeButtonInfo/Panel
+@onready var TurnPanelInfo = $Upgrate/PanelPendant/TurnUpgradeButtonInfo/Panel2
+
+
 func _ready():
 	Bridge.storage.get(["passedLvl", "coins"], Callable(self, "_on_storage_get_completed"))
 	Bridge.storage.get(["torque", "turnLeftRight"], Callable(self, "_on_global_player_storage_get_completed"))
@@ -38,26 +41,26 @@ func _on_storage_get_completed(success, data):
 
 		
 		if data[1] != null:
-			Global.coins = int(data[1])
+			#Global.coins = int(data[1])
 			print("coins: ", data[1])
 		else:
-			Global.coins = 0
+			Global.coins = 250
 			print("coins is null")
 
 
 func _on_global_player_storage_get_completed(success, data):
 	if success:
 		if data[0] != null:
-			GlobalPlayer.TORQUE = float(data[0])
+			#GlobalPlayer.TORQUE = float(data[0])
 			print("torque: ", data[0])
 		else:
 			GlobalPlayer.TORQUE = 1500.0
 
 			print("torque is 1500")
-
+		
 		
 		if data[1] != null:
-			GlobalPlayer.turnLeftRight = float(data[1])
+			#GlobalPlayer.turnLeftRight = float(data[1])
 			print("turnLeftRight: ", data[1])
 		else:
 			GlobalPlayer.turnLeftRight = 5500.0
@@ -139,3 +142,12 @@ func _on_button_upgrate_pendant_pressed() -> void:
 			$Upgrate/PanelPendant/Label.text = str("Максимальный уровень")
 	GlobalPlayer._save_data()
 	Global._save_data()
+
+func _on_speed_upgrade_button_info_mouse_entered() -> void:
+	SpeedPanelInfo.visible = true
+func _on_speed_upgrade_button_info_mouse_exited() -> void:
+	SpeedPanelInfo.visible = false
+func _on_turn_upgrade_button_info_mouse_entered() -> void:
+	TurnPanelInfo.visible = true
+func _on_turn_upgrade_button_info_mouse_exited() -> void:
+	TurnPanelInfo.visible = false

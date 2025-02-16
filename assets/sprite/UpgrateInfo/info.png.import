@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfcwogcce5n0v"
-path="res://.godot/imported/car-full.png-ae2ffb7b307632036a0daabc5cf86e48.ctex"
+uid="uid://c2c3jcs6m5q68"
+path="res://.godot/imported/info.png-c40ca2cf5534e50297be24ebf5d706a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/off road racing/car-full.png"
-dest_files=["res://.godot/imported/car-full.png-ae2ffb7b307632036a0daabc5cf86e48.ctex"]
+source_file="res://assets/sprite/UpgrateInfo/info.png"
+dest_files=["res://.godot/imported/info.png-c40ca2cf5534e50297be24ebf5d706a4.ctex"]
 
 [params]
 
